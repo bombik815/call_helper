@@ -29,14 +29,20 @@ INSTALLED_APPS += [
     'django_filters',
     'corsheaders',
     'djoser',
+    'phonenumber_field',
 ]
 # My app have been added in project
 INSTALLED_APPS += [
     'api',
     'common',
+    'users',
     'breaks'
-
 ]
+
+# переопределяем модель User на нашу ========================
+AUTH_USER_MODEL = 'users.User'
+AUTHENTICATION_BACKENDS = ('users.backends.AuthBackend',)
+#===========================================================
 
 # after apps
 INSTALLED_APPS += [
