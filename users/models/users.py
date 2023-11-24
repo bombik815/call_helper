@@ -31,6 +31,7 @@ class User(AbstractUser):
         return f'{self.full_name} ({self.pk})'
 
 # сигнал для создание профиля при сохранение пользователя.
+#
 @receiver(post_save, sender=User)
 def post_save_user(sender, instance, created, **kwargs):
     if not hasattr(instance, 'profile'):
